@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String [] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
         List<File> files = allFiles(args);
         Parser parser = context.getBean("parserAll", ParserAll.class);
@@ -29,6 +29,8 @@ public class Main {
     public static List<File> allFiles(String[] files) {
         List<File> f = new ArrayList<>();
         for (String str : files) {
+
+
             int csv = str.lastIndexOf(".csv");
             int json = str.lastIndexOf(".json");
             if (csv != -1) {
