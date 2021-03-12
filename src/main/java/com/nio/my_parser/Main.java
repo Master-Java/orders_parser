@@ -16,7 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
-        String [] args1 = {"orders1.csv","orders2.json"};
         List<File> files= allFiles(args);
         Parser parser = context.getBean("parserAll", ParserAll.class);
         for(File file: files) {
