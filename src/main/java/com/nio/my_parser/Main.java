@@ -16,9 +16,9 @@ public class Main {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
-        List<File> files= allFiles(args);
+        List<File> files = allFiles(args);
         Parser parser = context.getBean("parserAll", ParserAll.class);
-        for(File file: files) {
+        for (File file : files) {
             List<Output> arr = parser.myParse(file);
             for (Output o : arr) {
                 System.out.println(o);
@@ -26,15 +26,15 @@ public class Main {
         }
     }
 
-    public static List<File> allFiles(String[] files){
+    public static List<File> allFiles(String[] files) {
         List<File> f = new ArrayList<>();
-        for(String str: files){
+        for (String str : files) {
             int csv = str.lastIndexOf(".csv");
             int json = str.lastIndexOf(".json");
-            if(csv!=-1){
+            if (csv != -1) {
                 f.add(new CSV(str));
             }
-            if(json!=-1){
+            if (json != -1) {
                 f.add(new JSON(str));
             }
         }
