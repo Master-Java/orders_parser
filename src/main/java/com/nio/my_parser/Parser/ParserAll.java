@@ -21,7 +21,7 @@ public class ParserAll implements Parser {
         List<Output> allOutPut = new ArrayList<>();
         List<String> fileLines;
         try {
-            fileLines = Files.readAllLines(Paths.get("D://Example/" + csv.getFilePath()));
+            fileLines = Files.readAllLines(Paths.get(csv.getFilePath()));
             for (String fileLine : fileLines) {
                 String[] splitText = fileLine.split(",");
                 Output output = new Output(splitText);
@@ -44,7 +44,7 @@ public class ParserAll implements Parser {
         List<Output> allOutPut = new ArrayList<>();
         List<String> fileLines;
         try {
-            fileLines = Files.readAllLines(Paths.get("D://Example/" + json.getFilePath()));
+            fileLines = Files.readAllLines(Paths.get(json.getFilePath()));
             org.json.simple.parser.JSONParser parser = new JSONParser();
             for (String fileLine : fileLines) {
                 JSONObject jsonObject = (JSONObject) parser.parse(fileLine);
